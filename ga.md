@@ -1,5 +1,6 @@
 # minikube-action
 - build/deploy/test your applicaiton against a real kubernetes cluster in github actions.
+For more detail, please check [setup-minikube](https://github.com/medyagh/setup-minikube) 
 
 ### Example workflow 1: start kubernetes on pull request
 
