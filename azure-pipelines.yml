@@ -16,18 +16,9 @@ steps:
     docker version
     docker info
     docker system info
-  displayName: 'System Info '
-- script: |
     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
     sudo install minikube-darwin-amd64 /usr/local/bin/minikube
-  displayName: 'Install minikube'
-
-- script: |
     minikube version
     minikube start
-  displayName: 'start minikube'
-
-- script: |
     minikube kubectl -- get pods -A
-  displayName: 'start minikube'
-
+  displayName: 'Start minikube'
