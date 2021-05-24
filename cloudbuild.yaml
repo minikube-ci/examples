@@ -7,7 +7,7 @@ steps:
       git clone https://github.com/kubernetes/minikube
       cd minikube
       make
-      ./out/minikube start --force --alsologtostderr
+      ./out/minikube start --force --alsologtostderr --listen-address=0.0.0.0
       kubectl get pods -A
 options:
   machineType: N1_HIGHCPU_8
