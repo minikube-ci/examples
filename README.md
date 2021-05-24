@@ -12,4 +12,4 @@ Please file Pull Requests and / or Issues for missing CI platforms :smile:
 |---|---|--|
 | [Prow](https://github.com/kubernetes/test-infra/tree/master/prow) | [Yes](https://github.com/kubernetes/test-infra/tree/master/config/jobs/kubernetes/minikube) :heavy_check_mark: | [![Prow](https://prow.k8s.io/badge.svg?jobs=pull-minikube-build)](https://prow.k8s.io/?job=pull-minikube-build) |
 | [Google Cloud Build](https://cloud.google.com/cloud-build/) | [Yes](./gcb.md) :heavy_check_mark: | None |
-| [Github](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/about-continuous-integration) | [Yes](.github/workflows/kind.yml) :heavy_check_mark: | ![Github](https://github.com/minikube-ci/examples/workflows/Minikube/badge.svg) |
+| [Github](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/about-continuous-integration) | [Yes](.github/workflows/minikube.yml) :heavy_check_mark: | ![Github](https://github.com/minikube-ci/examples/workflows/Minikube/badge.svg) |
