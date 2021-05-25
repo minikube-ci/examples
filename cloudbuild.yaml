@@ -1,13 +1,15 @@
 steps:
-- name: gcr.io/k8s-minikube/prow-test:v0.0.1
+- name: gcr.io/cloud-builders/docker
   entrypoint: 'bash'
   args:
     - -c
     - |
-      git clone https://github.com/kubernetes/minikube
-      cd minikube
-      make
-      ./out/minikube start --force --alsologtostderr --driver=none
-      kubectl get pods -A
+       docker run -d -t --privileged --name minikube gcr.io/k8s-minikube/prow-test:v0.0.1
+- name: gcr.io/cloud-builders/docker
+  entrypoint: 'bash'
+  args:
+    - -c
+    - |
+       docker exec minikube /bin/bash -c "minikube start --driver=none --force && kubectl get pods -A"
 options:
   machineType: N1_HIGHCPU_8
