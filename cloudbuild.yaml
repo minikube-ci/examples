@@ -16,6 +16,6 @@ steps:
   args:
     - -c
     - |
-       docker exec minikube /bin/bash -c "minikube start --driver=none --force && kubectl get pods -A"
+       docker exec minikube /bin/bash -c "minikube start --force && kubectl get pods -A"
 options:
   machineType: N1_HIGHCPU_8
