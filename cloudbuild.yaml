@@ -10,7 +10,7 @@ steps:
   args:
     - -c
     - |
-       docker run -d -t --privileged --name minikube --volume foo:/var minikube-kic:latest
+       docker run -d -t --privileged --name minikube minikube-kic:latest
 - name: gcr.io/cloud-builders/docker
   entrypoint: 'bash'
   args:
