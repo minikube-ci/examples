@@ -1,7 +1,6 @@
 /**
- * gcloud functions deploy <FUNC_NAME> --runtime nodejs6 --trigger-resource cloud-builds --trigger-event google.pubsub.topic.publish
- * @param {object} event The Cloud Functions event.
- * @param {function} callback The callback function.
+ * gcloud functions deploy <FUNC_NAME> --runtime nodejs10 --trigger-resource cloud-builds --trigger-event google.pubsub.topic.publish
+ * @param {object} pubsubMessage The Cloud Functions event.
  */
 const { Storage } = require('@google-cloud/storage');
 
@@ -16,13 +15,10 @@ exports.working = (pubsubMessage) => {
         repo = buildResource.substitutions.TRIGGER_NAME === "minikube-ci-example";
         branch = buildResource.substitutions.BRANCH_NAME === "master";
       }
-    } else {
     }
     if (buildResource.status) {
       status = buildResource.status;
-    } else {
     }
-
     const storage = new Storage();
     if (repo && branch && status == "SUCCESS") {
       storage.bucket("minikube-ci-example")
