@@ -22,36 +22,24 @@ Examples can be found in the following `cloudbuild.yml`.
 
 ```yaml
 steps:
-- name: 'ubuntu'
-  entrypoint: bash
-  dir: bin
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
   args:
-  - -c
-  - |
-    apt-get update -y
-    apt-get install -y sudo curl
-    curl -L https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl > kubectl
-    chmod 0750 kubectl
-    curl -L  https://storage.googleapis.com/minikube-builds/master/minikube-linux-amd64 > minikube
-    chmod 0750 minikube
-- name: 'ubuntu'
-  entrypoint: bash
+    - -c
+    - |
+      docker build -t minikube-kic .
+- name: gcr.io/cloud-builders/docker
+  entrypoint: 'bash'
   args:
-  - -xeuc
-  - |
-    PATH="$${PATH}:$${PWD}/bin"
-    {
-      apt-get update -y
-      apt-get install -y sudo curl gnupg
-      sh -c "echo 'deb https://download.docker.com/linux/ubuntu focal stable' > /etc/apt/sources.list.d/docker.list"
-      curl -L https://download.docker.com/linux/ubuntu/gpg -o docker.key && apt-key add - < docker.key 
-      apt-get update -y
-      apt-get install -y docker-ce docker-ce-cli containerd.io
-      apt-get install -y conntrack sudo iptables
-      docker version
-    } >/dev/null
-    minikube start --driver=none --alsologtostderr --force 
-    kubectl get pods -A
+    - -c
+    - |
+       docker run -d -t --privileged --name minikube minikube-kic:latest
+- name: gcr.io/cloud-builders/docker
+  entrypoint: 'bash'
+  args:
+    - -c
+    - |
+       docker exec minikube /bin/bash -c "minikube start --force && kubectl get pods -A"
 options:
   machineType: N1_HIGHCPU_8
 ```
