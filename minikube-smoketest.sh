@@ -30,7 +30,7 @@ main() {
     # get minikube
     install_minikube_release
     # create a cluster
-    "${MINIKUBE}" start
+    "${MINIKUBE}" start --force
     "${MINIKUBE}" kubectl -- get pods -A
     # TODO: invoke your tests here
     # teardown will happen automatically on exit
