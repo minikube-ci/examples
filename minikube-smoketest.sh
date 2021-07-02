@@ -21,7 +21,7 @@ trap cleanup EXIT
 
 # util to install a released minikube version into ${BIN_DIR}
 install_minikube_release() {
-    MINIKUBE_BINARY_URL="https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64"
+    MINIKUBE_BINARY_URL="https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
     wget -O "${MINIKUBE}" "${MINIKUBE_BINARY_URL}"
     chmod +x "${MINIKUBE}"
 }
