@@ -44,7 +44,7 @@ before_script:
 - cd ..
 
 # Make sure crictl is in /usr/bin for it to be found by sudo
-- curl -L https://github.com/kubernetes-sigs/cri-tools/releases/download/${CRICTL_VERSION}/crictl-${CRICTL_VERSION}-linux-amd64.tar.gz --output >
+- curl -L https://github.com/kubernetes-sigs/cri-tools/releases/download/${CRICTL_VERSION}/crictl-${CRICTL_VERSION}-linux-amd64.tar.gz --output crictl-${CRICTL_VERSION}-linux-amd64.tar.gz
 - sudo tar zxvf crictl-${CRICTL_VERSION}-linux-amd64.tar.gz -C /usr/bin
 - rm -f crictl-${CRICTL_VERSION}-linux-amd64.tar.gz
 - sudo cp crictl.yaml /etc/crictl.yaml
