@@ -1,0 +1,4 @@
+runtime-endpoint: unix:///var/run/cri-dockerd.sock
+image-endpoint: unix:///var/run/cri-dockerd.sock
+timeout: 2
+debug: false
