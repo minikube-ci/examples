@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: build discover and deploy 
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
     - name: Start minikube
       uses: medyagh/setup-minikube@latest
       # now you can run kubectl to see the pods in the cluster
